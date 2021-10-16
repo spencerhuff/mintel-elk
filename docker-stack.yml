@@ -43,6 +43,19 @@ services:
       mode: replicated
       replicas: 1
 
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.15.0
+    ports:
+      - "5601:5601"
+    configs:
+      - source: kibana_config
+        target: /usr/share/kibana/config/kibana.yml
+    networks:
+      - elk
+    deploy:
+      mode: replicated
+      replicas: 1
+
 configs:
 
   elastic_config:
@@ -51,6 +64,8 @@ configs:
     file: ./logstash/config/logstash.yml
   logstash_pipeline:
     file: ./logstash/pipeline/logstash.conf
+  kibana_config:
+    file: ./kibana/config/kibana.yml
 
 networks:
   elk:
