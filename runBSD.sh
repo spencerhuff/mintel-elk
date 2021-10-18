@@ -1,5 +1,6 @@
 #!/bin/sh
 # Using BSD netcat (Debian, Ubuntu, MacOS system, ...)
+. .env
 docker-compose up -d
 sleep 120 # wait 2 minutes for the stack to initialize before sending log data
-curl -L -k https://github.com/mintel/sre-interview-assets/blob/master/challenges/challenge_01_docker_elk_apache_logs/WEB_access_log.log.gz?raw=true | gzip -d | nc -q0 localhost 5000
+curl -L -k $URL_LOG_RAW | gzip -d | nc -q0 localhost 5000
