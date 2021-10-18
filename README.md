@@ -34,6 +34,9 @@ Once the script completes, access Kibana by opening your browser and going to:
 
 `localhost:5601`
 
+User: `elastic`
+Pass: `changeme` (Putting plaintext passwords in a repo is a bad idea! But this is a prototype not meant to hold real data :))
+
 Import the dashboard by navigating to **Management** -> **Stack Management** -> **Kibana** -> **Saved Objects** -> **Import**
 
 Import the `mintel-dashboard.ndjson` file found in this repo's `json` directory
